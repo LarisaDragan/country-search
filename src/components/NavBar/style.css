@@ -1,0 +1,9 @@
+.navbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  padding: 15px 30px !important;
+}
+
+html[data-theme="dark"] .navbar {
+  background-color: #2b3a49;
+}
