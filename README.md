@@ -19,6 +19,7 @@ Challenge project by Frontend Mentor.
 - TypeScript
 - Axios
 - React Router
+- Context API
 - React Boostrap
 - CSS
 
