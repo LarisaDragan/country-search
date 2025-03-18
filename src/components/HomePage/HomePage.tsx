@@ -103,7 +103,7 @@ const HomePage = () => {
         {countriesToDisplay.map((country, index) => {
           return (
             <Card
-              id="country-card"
+              className="country-card"
               key={index}
               onClick={() =>
                 navigate("/country-details", { state: { country, countries } })
@@ -116,7 +116,9 @@ const HomePage = () => {
                 style={{ height: "50%" }}
               />
               <Card.Body>
-                <Card.Title id="country-name">{country.name.common}</Card.Title>
+                <Card.Title className="country-name">
+                  {country.name.common}
+                </Card.Title>
                 <Card.Text className="card-info">
                   Population: {country.population}
                 </Card.Text>
