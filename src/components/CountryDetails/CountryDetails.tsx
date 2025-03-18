@@ -2,17 +2,25 @@ import { Button, ListGroup } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import "./style.css";
+import { Country } from "../../types";
 
 const CountryDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { country } = location.state || {};
+  const { country, countries } = location.state || {};
 
   const { languages, currencies } = country;
   const countryLanguages = Object.values(languages).join(", ");
   const countryCurrencies = Object.values(
     currencies as Record<string, { name: string; symbol: string }>
   )[0].name;
+
+  const computeBorders = (val: string) => {
+    const country = countries.find((item: Country) => {
+      return item.cca3.toLowerCase() === val.toLowerCase();
+    });
+    return country ? country.name.common : "";
+  };
 
   return (
     <div className="container-info">
@@ -23,10 +31,7 @@ const CountryDetails = () => {
       >
         Back
       </Button>
-      <div
-        // style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
-        className="country-details"
-      >
+      <div className="country-details">
         <Image
           className="flag"
           src={country.flags.png}
@@ -35,7 +40,7 @@ const CountryDetails = () => {
         />
 
         <div className="info">
-          <div className="country-name">{country.name.common}</div>
+          <div className="country-name-title">{country.name.common}</div>
 
           <ListGroup className="list-group">
             <ListGroup.Item className="info-fields">
@@ -69,7 +74,7 @@ const CountryDetails = () => {
                 Border Countries:
                 {country.borders.map((border: string, index: number) => (
                   <div key={index} className="borders">
-                    {border}
+                    {computeBorders(border)}
                   </div>
                 ))}
               </>

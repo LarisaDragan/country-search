@@ -3,7 +3,7 @@
   border: none !important;
 }
 
-.country-name {
+.country-name-title {
   font-size: 25px;
   margin-bottom: 10px;
   font-weight: bold;
@@ -20,15 +20,17 @@
 
   > div {
     margin-right: 10px;
-    margin-top: 5px;
-    height: 25px;
-    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 10px;
     margin-right: 0;
     color: black;
+    border: 1px solid;
+    padding: 3px;
+    margin-top: 5px;
+    border-radius: 7px;
+    box-shadow: 0 0 10px -2px #bdb1b1;
   }
 }
 
@@ -54,6 +56,7 @@
   padding: 15px;
   margin-bottom: 40px;
   color: black !important;
+  box-shadow: 0 0 10px -2px #bdb1b1;
 }
 
 .country-details {
@@ -61,22 +64,28 @@
   grid-template-columns: 1fr 1fr;
 }
 
-html[data-theme="dark"] .info-fields,
-html[data-theme="dark"] .back-button {
+html[data-theme="dark"] .info-fields {
   color: white !important;
 }
 
-html[data-theme="dark"] .borders {
+html[data-theme="dark"] .back-button {
   color: white !important;
+  box-shadow: 0 0 7px -2px #bdb1b1;
+}
+
+html[data-theme="dark"] .borders {
   margin-right: 10px;
-  margin-top: 5px;
-  height: 25px;
-  width: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 10px;
   margin-right: 0;
+  color: white;
+  border: 1px solid;
+  padding: 3px;
+  margin-top: 5px;
+  border-radius: 7px;
+  box-shadow: 0 0 7px -2px #bdb1b1;
 }
 
 @media (max-width: 1050px) {

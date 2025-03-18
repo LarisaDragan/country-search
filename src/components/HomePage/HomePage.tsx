@@ -106,12 +106,13 @@ const HomePage = () => {
               id="country-card"
               key={index}
               onClick={() =>
-                navigate("/country-details", { state: { country } })
+                navigate("/country-details", { state: { country, countries } })
               }
             >
               <Card.Img
                 variant="top"
                 src={country.flags.png}
+                alt={`${country.name.common} flag`}
                 style={{ height: "50%" }}
               />
               <Card.Body>
