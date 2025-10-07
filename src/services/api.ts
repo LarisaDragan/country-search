@@ -2,7 +2,10 @@ import axios from "axios";
 
 const getCountries = async () => {
   try {
-    const response = await axios.get("https://restcountries.com/v3.1/all");
+    const response = await axios.get(
+      "https://restcountries.com/v3.1/all?fields=name,region,capital,flags,languages,currencies"
+    );
+
     return response;
   } catch (error) {
     console.log("error in api", error);

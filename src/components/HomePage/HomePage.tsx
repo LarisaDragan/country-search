@@ -65,73 +65,77 @@ const HomePage = () => {
 
   return (
     <>
-      <div id="homepage-inputs">
-        <InputGroup className="search-input mb-3">
-          <InputGroup.Text>
-            <SearchIcon />
-          </InputGroup.Text>
-          <Form.Control
-            type="text"
-            placeholder="Search for a country..."
-            onChange={(e) => searchCountry(e.target.value)}
-          />
-        </InputGroup>
+      <div className="homepage-sections">
+        <div id="homepage-inputs">
+          <InputGroup className="search-input mb-3">
+            <InputGroup.Text>
+              <SearchIcon />
+            </InputGroup.Text>
+            <Form.Control
+              type="text"
+              placeholder="Search for a country..."
+              onChange={(e) => searchCountry(e.target.value)}
+            />
+          </InputGroup>
 
-        <Form.Select
-          aria-label="Default select example"
-          size="sm"
-          className="filter-dropdown"
-          value={selectedRegion || ""}
-          onChange={(e) => {
-            handleFilteredCountries(e.target.value);
-            setSelectedRegion(e.target.value);
-          }}
-        >
-          <option value="" disabled>
-            Filter by region
-          </option>
-          {regions.map((region) => {
+          <Form.Select
+            aria-label="Default select example"
+            size="sm"
+            className="filter-dropdown"
+            value={selectedRegion || ""}
+            onChange={(e) => {
+              handleFilteredCountries(e.target.value);
+              setSelectedRegion(e.target.value);
+            }}
+          >
+            <option value="" disabled>
+              Filter by region
+            </option>
+            {regions.map((region) => {
+              return (
+                <option key={region} value={region}>
+                  {region}
+                </option>
+              );
+            })}
+          </Form.Select>
+        </div>
+        <div className="countries-container">
+          {countriesToDisplay.map((country, index) => {
             return (
-              <option key={region} value={region}>
-                {region}
-              </option>
+              <Card
+                className="country-card"
+                key={index}
+                onClick={() =>
+                  navigate("/country-details", {
+                    state: { country, countries },
+                  })
+                }
+              >
+                <Card.Img
+                  variant="top"
+                  src={country.flags.png}
+                  alt={`${country.name.common} flag`}
+                  style={{ height: "50%" }}
+                />
+                <Card.Body>
+                  <Card.Title className="country-name">
+                    {country.name.common}
+                  </Card.Title>
+                  <Card.Text className="card-info">
+                    Population: {country.population}
+                  </Card.Text>
+                  <Card.Text className="card-info">
+                    Region: {country.region}
+                  </Card.Text>
+                  <Card.Text className="card-info">
+                    Capital: {country.capital}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
             );
           })}
-        </Form.Select>
-      </div>
-      <div className="countries-container">
-        {countriesToDisplay.map((country, index) => {
-          return (
-            <Card
-              className="country-card"
-              key={index}
-              onClick={() =>
-                navigate("/country-details", { state: { country, countries } })
-              }
-            >
-              <Card.Img
-                variant="top"
-                src={country.flags.png}
-                alt={`${country.name.common} flag`}
-                style={{ height: "50%" }}
-              />
-              <Card.Body>
-                <Card.Title className="country-name">
-                  {country.name.common}
-                </Card.Title>
-                <Card.Text className="card-info">
-                  Population: {country.population}
-                </Card.Text>
-                <Card.Text className="card-info">
-                  Region: {country.region}
-                </Card.Text>
-                <Card.Text className="card-info">
-                  Capital: {country.capital}
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          );
-        })}
+        </div>
       </div>
     </>
   );
