@@ -25,9 +25,9 @@ Challenge project by Frontend Mentor.
 
 ## Screenshots
 
-![image](https://github.com/user-attachments/assets/d96a4aa9-b98b-4229-807b-1c8c40d64ee8)
+<img width="2553" height="1323" alt="image" src="https://github.com/user-attachments/assets/0d732604-b250-4d12-87a4-6718e8aed1c0" />
 
-![image](https://github.com/user-attachments/assets/5202db2f-3499-47c4-bdef-5484df371898)
+<img width="1602" height="1328" alt="image" src="https://github.com/user-attachments/assets/9cc55694-5d5e-4eb9-ae5e-b5df1cb5a91f" />
 
 ![image](https://github.com/user-attachments/assets/930dd944-7ccd-451e-8a7f-d36b3bfef8a4)
 
